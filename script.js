@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Инициализация корзины
+    // Г€Г­ГЁГ¶ГЁГ Г«ГЁГ§Г Г¶ГЁГї ГЄГ®Г°Г§ГЁГ­Г»
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
     updateCartCount();
  
-    // Обработчики для кнопок "Добавить в корзину" и "Купить"
+    // ГЋГЎГ°Г ГЎГ®ГІГ·ГЁГЄГЁ Г¤Г«Гї ГЄГ­Г®ГЇГ®ГЄ "Г„Г®ГЎГ ГўГЁГІГј Гў ГЄГ®Г°Г§ГЁГ­Гі" ГЁ "ГЉГіГЇГЁГІГј"
     document.querySelectorAll('.buy-btn').forEach(button => {
         button.addEventListener('click', function() {
             const id = this.getAttribute('data-id');
@@ -11,11 +11,11 @@ document.addEventListener('DOMContentLoaded', function() {
             const price = parseInt(this.getAttribute('data-price'));
             
             addToCart(id, name, price);
-            showAlert(`${name} добавлен в корзину!`);
+            showAlert(`${name} Г¤Г®ГЎГ ГўГ«ГҐГ­ Гў ГЄГ®Г°Г§ГЁГ­Гі!`);
         });
     });
  
-    // Функция добавления в корзину
+    // Г”ГіГ­ГЄГ¶ГЁГї Г¤Г®ГЎГ ГўГ«ГҐГ­ГЁГї Гў ГЄГ®Г°Г§ГЁГ­Гі
     function addToCart(id, name, price) {
         const existingItem = cart.find(item => item.id === id);
         
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
         updateCartCount();
     }
  
-    // Обновление счетчика корзины
+    // ГЋГЎГ­Г®ГўГ«ГҐГ­ГЁГҐ Г±Г·ГҐГІГ·ГЁГЄГ  ГЄГ®Г°Г§ГЁГ­Г»
     function updateCartCount() {
         const count = cart.reduce((sum, item) => sum + item.quantity, 0);
         document.querySelectorAll('.cart-count').forEach(el => {
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
  
-    // Всплывающее уведомление
+    // Г‚Г±ГЇГ«Г»ГўГ ГѕГ№ГҐГҐ ГіГўГҐГ¤Г®Г¬Г«ГҐГ­ГЁГҐ
     function showAlert(message) {
         const alert = document.createElement('div');
         alert.className = 'alert-message';
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 2000);
     }
  
-    // Проверка корзины на странице заказа
+    // ГЏГ°Г®ГўГҐГ°ГЄГ  ГЄГ®Г°Г§ГЁГ­Г» Г­Г  Г±ГІГ°Г Г­ГЁГ¶ГҐ Г§Г ГЄГ Г§Г 
     function checkCartOnOrderPage() {
         if (window.location.pathname.includes('order.html')) {
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -61,26 +61,36 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
  
-    // Настройка кнопки очистки корзины
+    // ГЌГ Г±ГІГ°Г®Г©ГЄГ  ГЄГ­Г®ГЇГЄГЁ Г®Г·ГЁГ±ГІГЄГЁ ГЄГ®Г°Г§ГЁГ­Г»
     function setupClearCartButton() {
         const clearCartBtn = document.getElementById('clearCart');
         if (clearCartBtn) {
             clearCartBtn.addEventListener('click', function() {
-                if (confirm('Вы действительно хотите очистить корзину?')) {
+                if (confirm('Г‚Г» Г¤ГҐГ©Г±ГІГўГЁГІГҐГ«ГјГ­Г® ГµГ®ГІГЁГІГҐ Г®Г·ГЁГ±ГІГЁГІГј ГЄГ®Г°Г§ГЁГ­Гі?')) {
                     localStorage.removeItem('cart');
                     updateCartCount();
                     
                     if (window.location.pathname.includes('order.html')) {
                         window.location.reload();
                     } else {
-                        showAlert('Корзина очищена');
+                        showAlert('ГЉГ®Г°Г§ГЁГ­Г  Г®Г·ГЁГ№ГҐГ­Г ');
                     }
                 }
             });
         }
     }
  
-    // Инициализация функций
+    // Г€Г­ГЁГ¶ГЁГ Г«ГЁГ§Г Г¶ГЁГї ГґГіГ­ГЄГ¶ГЁГ©
     checkCartOnOrderPage();
     setupClearCartButton();
 });
+    // РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ С„СѓРЅРєС†РёР№
+    checkCartOnOrderPage();
+    setupClearCartButton();
+});
+// Р РµРіРёСЃС‚СЂР°С†РёСЏ Service Worker
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/sw.js')
+  });
+}
