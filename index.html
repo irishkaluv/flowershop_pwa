@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Цветочная мастерская "Флора"</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <img src="images/logo.png" alt="Логотип Флора" class="logo">
+                <a href="order.html" class="cart-icon" id="cartIcon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Букеты</a></li>
+                    <li><a href="certificates.html">Сертификаты</a></li>
+                    <li><a href="feedback.html">Отзывы</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ 
+    <main class="container">
+        <section class="intro">
+            <h2>Авторские букеты для особых моментов</h2>
+            <p>Каждый букет создается с любовью и вниманием к деталям</p>
+        </section>
+ 
+        <section class="bouquets">
+            <h2>Наши букеты</h2>
+            <div class="bouquet-grid">
+                <!-- Букет 1 -->
+                <div class="bouquet-card">
+                    <img src="images/bouquets/bouquet1.jpg" alt="Букет 'Нежность'">
+                    <h3>Нежность</h3>
+                    <p class="price">3 500 ₽</p>
+                    <div class="description">
+                        <p>Розы и пионы в пастельных тонах. Идеально для свидания или в подарок маме.</p>
+                    </div>
+                    <button class="buy-btn" data-id="1" data-name="Нежность" data-price="3500">Добавить в корзину</button>
+                </div>
+ 
+                <!-- Букет 2 -->
+                <div class="bouquet-card">
+                    <img src="images/bouquets/bouquet2.jpg" alt="Букет 'Элеганс'">
+                    <h3>Элеганс</h3>
+                    <p class="price">5 200 ₽</p>
+                    <div class="description">
+                        <p>Белые орхидеи и каллы. Для официальных мероприятий и торжеств.</p>
+                    </div>
+                    <button class="buy-btn" data-id="2" data-name="Элеганс" data-price="5200">Добавить в корзину</button>
+                </div>
+ 
+                <!-- Букет 3 -->
+                <div class="bouquet-card">
+                    <img src="images/bouquets/bouquet3.jpg" alt="Букет 'Яркие эмоции'">
+                    <h3>Яркие эмоции</h3>
+                    <p class="price">4 800 ₽</p>
+                    <div class="description">
+                        <p>Гортензии в сочных оттенках с зеленью. Поднимет настроение в любой день!</p>
+                    </div>
+                    <button class="buy-btn" data-id="3" data-name="Яркие эмоции" data-price="4800">Добавить в корзину</button>
+                </div>
+ 
+                <!-- Букет 4 -->
+                <div class="bouquet-card">
+                    <img src="images/bouquets/bouquet4.jpg" alt="Букет 'Романтика'">
+                    <h3>Романтика</h3>
+                    <p class="price">6 000 ₽</p>
+                    <div class="description">
+                        <p>Розовые розы и зелень. Для признаний в любви и годовщин.</p>
+                    </div>
+                    <button class="buy-btn" data-id="4" data-name="Романтика" data-price="6000">Добавить в корзину</button>
+                </div>
+            </div>
+        </section>
+    </main>
+ 
+    <footer>
+        <div class="container">
+            <p>© 2023 Цветочная мастерская "Флора"</p>
+            <p>Телефон: +7 (123) 456-78-90</p>
+            <p>Адрес: г. Москва, ул. Цветочная, 12</p>
+        </div>
+    </footer>
+ 
+    <script src="script.js"></script>
+</body>
+</html>

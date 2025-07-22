@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отзывы - Цветочная мастерская "Флора"</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <img src="images/logo.png" alt="Логотип Флора" class="logo">
+                <a href="order.html" class="cart-icon" id="cartIcon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Букеты</a></li>
+                    <li><a href="certificates.html">Сертификаты</a></li>
+                    <li><a href="feedback.html">Отзывы</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ 
+    <main class="container">
+        <section class="feedback-section">
+            <h2>Оставьте ваш отзыв</h2>
+            
+            <div class="feedback-container">
+                <div class="feedback-form">
+                    <form id="feedbackForm">
+                        <div class="form-group">
+                            <label for="name">Ваше имя*</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="rating">Оценка*</label>
+                            <select id="rating" name="rating" required>
+                                <option value="">Выберите оценку</option>
+                                <option value="5">Отлично (5★)</option>
+                                <option value="4">Хорошо (4★)</option>
+                                <option value="3">Удовлетворительно (3★)</option>
+                                <option value="2">Плохо (2★)</option>
+                                <option value="1">Ужасно (1★)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Ваш отзыв*</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">Отправить отзыв</button>
+                    </form>
+                </div>
+                
+                <div class="reviews-list">
+                    <h3>Последние отзывы</h3>
+                    <div class="reviews-container" id="reviewsContainer">
+                        <!-- Отзывы будут загружаться здесь -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+ 
+    <footer>
+        <div class="container">
+            <p>© 2023 Цветочная мастерская "Флора"</p>
+            <p>Телефон: +7 (123) 456-78-90</p>
+            <p>Адрес: г. Москва, ул. Цветочная, 12</p>
+        </div>
+    </footer>
+ 
+    <script src="feedback.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

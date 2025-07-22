@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оформление заказа - Флора</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <img src="images/logo.png" alt="Логотип Флора" class="logo">
+                <div class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Букеты</a></li>
+                    <li><a href="certificates.html">Сертификаты</a></li>
+                    <li><a href="feedback.html">Отзывы</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ 
+    <main class="container">
+        <section class="order-section">
+            <h2>Оформление заказа</h2>
+            
+            <div class="cart-actions">
+                <button id="clearCart" class="clear-cart-btn">Очистить корзину</button>
+            </div>
+            
+            <div class="order-container">
+                <div class="order-items" id="orderItems">
+                    <!-- Товары будут загружены сюда -->
+                </div>
+                
+                <form id="orderForm" class="order-form">
+                    <div class="form-group">
+                        <label for="orderName">Ваше имя*</label>
+                        <input type="text" id="orderName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="orderPhone">Телефон*</label>
+                        <input type="tel" id="orderPhone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="orderEmail">Email</label>
+                        <input type="email" id="orderEmail">
+                    </div>
+                    <div class="form-group">
+                        <label for="orderAddress">Адрес доставки*</label>
+                        <input type="text" id="orderAddress" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="orderComment">Комментарий к заказу</label>
+                        <textarea id="orderComment" rows="3"></textarea>
+                    </div>
+                    <div class="order-total">
+                        <strong>Итого:</strong>
+                        <span id="orderTotal">0 ₽</span>
+                    </div>
+                    <button type="submit" class="submit-order-btn">Подтвердить заказ</button>
+                </form>
+            </div>
+        </section>
+    </main>
+ 
+    <footer>
+        <div class="container">
+            <p>© 2023 Цветочная мастерская "Флора"</p>
+            <p>Телефон: +7 (123) 456-78-90</p>
+            <p>Адрес: г. Москва, ул. Цветочная, 12</p>
+        </div>
+    </footer>
+ 
+    <!-- Модальное окно подтверждения заказа -->
+    <div class="order-modal" id="orderModal">
+        <div class="modal-content">
+            <h3>Спасибо за заказ!</h3>
+            <p>Мы получили ваш заказ и скоро свяжемся с вами для уточнения деталей.</p>
+            <button id="closeModal">Вернуться на главную</button>
+        </div>
+    </div>
+ 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const orderItems = document.getElementById('orderItems');
+            const orderTotal = document.getElementById('orderTotal');
+            const orderForm = document.getElementById('orderForm');
+            const cartCount = document.querySelector('.cart-count');
+            const orderModal = document.getElementById('orderModal');
+            const closeModal = document.getElementById('closeModal');
+            const clearCartBtn = document.getElementById('clearCart');
+            
+            // Обновляем счетчик корзины
+            cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+            
+            // Отображаем товары в корзине
+            if (cart.length === 0) {
+                orderItems.innerHTML = '<p class="empty-order">Ваша корзина пуста</p>';
+            } else {
+                let itemsHTML = '';
+                let total = 0;
+                
+                cart.forEach(item => {
+                    itemsHTML += `
+                        <div class="order-item">
+                            <div class="item-info">
+                                <h4>${item.name}</h4>
+                                <p>${item.quantity} × ${item.price.toLocaleString()} ₽</p>
+                            </div>
+                            <div class="item-total">${(item.quantity * item.price).toLocaleString()} ₽</div>
+                        </div>
+                    `;
+                    total += item.quantity * item.price;
+                });
+                
+                orderItems.innerHTML = itemsHTML;
+                orderTotal.textContent = total.toLocaleString() + ' ₽';
+            }
+            
+            // Обработка формы заказа
+            orderForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                orderModal.style.display = 'flex';
+                localStorage.removeItem('cart');
+            });
+            
+            // Закрытие модального окна
+            closeModal.addEventListener('click', function() {
+                orderModal.style.display = 'none';
+                window.location.href = 'index.html';
+            });
+            
+            // Очистка корзины
+            clearCartBtn.addEventListener('click', function() {
+                if (confirm('Вы действительно хотите очистить корзину?')) {
+                    localStorage.removeItem('cart');
+                    window.location.reload();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

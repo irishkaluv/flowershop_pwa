@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сертификаты - Цветочная мастерская "Флора"</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <img src="images/logo.png" alt="Логотип Флора" class="logo">
+                <a href="order.html" class="cart-icon" id="cartIcon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Букеты</a></li>
+                    <li><a href="certificates.html">Сертификаты</a></li>
+                    <li><a href="feedback.html">Отзывы</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ 
+    <main class="container">
+        <section class="certificates-intro">
+            <h2>Подарочные сертификаты</h2>
+            <p>Подарите своим близким возможность выбрать идеальный букет</p>
+        </section>
+ 
+        <section class="certificates">
+            <div class="certificate-grid">
+                <!-- Сертификат 3000 -->
+                <div class="certificate-card">
+                    <img src="images/certificates/cert3000.jpg" alt="Сертификат на 3000 рублей">
+                    <h3>Сертификат на 3000 ₽</h3>
+                    <p>Идеально для небольшого, но приятного сюрприза</p>
+                    <button class="buy-btn" data-id="cert1" data-name="Сертификат на 3000 ₽" data-price="3000">
+                        Купить
+                    </button>
+                </div>
+ 
+                <!-- Сертификат 5000 -->
+                <div class="certificate-card">
+                    <img src="images/certificates/cert5000.jpg" alt="Сертификат на 5000 рублей">
+                    <h3>Сертификат на 5000 ₽</h3>
+                    <p>Позволит выбрать роскошный букет из нашей коллекции</p>
+                    <button class="buy-btn" data-id="cert2" data-name="Сертификат на 5000 ₽" data-price="5000">
+                        Купить
+                    </button>
+                </div>
+ 
+                <!-- Сертификат 10000 -->
+                <div class="certificate-card">
+                    <img src="images/certificates/cert10000.jpg" alt="Сертификат на 10000 рублей">
+                    <h3>Сертификат на 10000 ₽</h3>
+                    <p>Для особых случаев и премиальных композиций</p>
+                    <button class="buy-btn" data-id="cert3" data-name="Сертификат на 10000 ₽" data-price="10000">
+                        Купить
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+ 
+    <footer>
+        <div class="container">
+            <p>© 2023 Цветочная мастерская "Флора"</p>
+            <p>Телефон: +7 (123) 456-78-90</p>
+            <p>Адрес: г. Москва, ул. Цветочная, 12</p>
+        </div>
+    </footer>
+ 
+    <script src="script.js"></script>
+</body>
+</html>
